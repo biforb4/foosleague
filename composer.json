@@ -1,6 +1,6 @@
 {
     "type": "project",
-    "name": "FoosLeague",
+    "name": "biforb4/foosleague",
     "description": "A tool to manage leagues on Slack",
     "license": "proprietary",
     "require": {
