@@ -58,7 +58,8 @@ final class SlackLeagueContext implements Context
         $client->request(
             'POST',
             '/slack/league',
-            $parameters, [],
+            $parameters,
+            [],
             [
                 'PHP_AUTH_USER' => 'slackbot',
                 'PHP_AUTH_PW'   => 'password',
@@ -97,7 +98,8 @@ final class SlackLeagueContext implements Context
         $client->request(
             'POST',
             '/slack/show-leagues',
-            $parameters, [],
+            $parameters,
+            [],
             [
                 'PHP_AUTH_USER' => 'slackbot',
                 'PHP_AUTH_PW'   => 'password',
