@@ -1,0 +1,7 @@
+slack:
+    resource: ../../src/FoosLeague/Infrastructure/Slack
+    type: annotation
+
+kernel:
+    resource: ../../src/FoosCommon/Kernel.php
+    type: annotation

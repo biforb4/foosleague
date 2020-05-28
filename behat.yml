@@ -1,0 +1,25 @@
+default:
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            kernel:
+                class: FoosCommon\Kernel
+        Behat\MinkExtension:
+            sessions:
+                symfony:
+                    symfony: ~
+    suites:
+        domain:
+            paths:
+                - '%paths.base%/tests/Behat'
+            contexts:
+                - Tests\Behat\Context\LeagueContext
+                - Tests\Behat\Context\TeamContext
+                - Tests\Behat\Context\PlayerContext
+                - Tests\Behat\Context\GameContext
+        slack:
+            paths:
+                - '%paths.base%/tests/Behat'
+            contexts:
+                - Tests\Behat\Context\SlackLeagueContext
+            filters: { tags: '@slack' }
+

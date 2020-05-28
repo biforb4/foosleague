@@ -1,0 +1,22 @@
+security:
+    providers:
+        users_in_memory:
+            memory:
+                users:
+                    slackbot: { password: '%env(string:SLACK_SINGING_SECRET)%', roles: ['ROLE_SLACK_BOT'] }
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        slack:
+            pattern: ^/slack
+            anonymous: false
+            provider: users_in_memory
+            stateless: true
+            guard:
+                authenticators:
+                    - FoosCommon\Infrastructure\Slack\SlackGuardAuthenticator
+
+    access_control:
+         - { path: ^/slack, roles: ROLE_SLACK_BOT }
+         - { path: ^/, roles: ROLE_USER }

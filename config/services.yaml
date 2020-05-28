@@ -1,0 +1,48 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+parameters:
+
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            FoosLeague\Infrastructure\EventSourcing\EventStoreInterface $eventStore: '@FoosLeague\Infrastructure\EventSourcing\DBALEventStore'
+
+    FoosLeague\:
+        resource: '../src/FoosLeague/*'
+        exclude:
+            - '../src/FoosLeague/Infrastructure/Migrations'
+            - '../src/FoosLeague/Application/{Command,Query}'
+
+    FoosLeague\Infrastructure\Slack\:
+        resource: '../src/FoosLeague/Infrastructure/Slack/*Controller.php'
+        tags: ['controller.service_arguments']
+
+    FoosCommon\Infrastructure\Slack\SlackGuardAuthenticator: ~
+
+    command_handlers:
+        namespace: FoosLeague\Application\CommandHandler\
+        resource: '%kernel.project_dir%/src/FoosLeague/Application/CommandHandler/*CommandHandler.php'
+        autoconfigure: false
+        tags:
+            - { name: messenger.message_handler, bus: command.bus }
+
+    query_handlers:
+        namespace: FoosLeague\Application\QueryHandler\
+        resource: '%kernel.project_dir%/src/FoosLeague/Application/QueryHandler/*QueryHandler.php'
+        autoconfigure: false
+        tags:
+            - { name: messenger.message_handler, bus: query.bus }
+
+    FoosLeague\Infrastructure\EventSourcing\DBALEventStore:
+        arguments: ['@database_connection', '@event.bus']
+
+    property_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer
+        public: false
+        tags: [serializer.normalizer]
+        arguments:
+            $nameConverter: '@serializer.name_converter.camel_case_to_snake_case'

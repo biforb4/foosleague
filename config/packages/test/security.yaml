@@ -1,0 +1,13 @@
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+    providers:
+        users_in_memory:
+            memory:
+                users:
+                    slackbot: { password: 'password', roles: ['ROLE_SLACK_BOT'] }
+    firewalls:
+        slack:
+            pattern: ^/slack
+            provider: users_in_memory
+            http_basic: ~
