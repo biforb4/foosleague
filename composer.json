@@ -1,5 +1,7 @@
 {
     "type": "project",
+    "name": "FoosLeague",
+    "description": "A tool to manage leagues on Slack",
     "license": "proprietary",
     "require": {
         "php": "^7.4",
