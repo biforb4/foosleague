@@ -1,8 +1,7 @@
 version: "3.1"
 services:
-
     postgres:
-      image: postgres:11.1-alpine
+      image: postgres:12-alpine
       container_name: foosleague-postgres
       working_dir: /application
       volumes:
@@ -13,22 +12,12 @@ services:
         - POSTGRES_DB=foosleague
       ports:
         - "10003:5432"
-
-    webserver:
-      image: nginx:alpine
-      container_name: foosleague-webserver
-      working_dir: /application
+    php-apache:
+      build: docker/php-apache
+      container_name: foosleague-php
+      working_dir: /var/www/html
       volumes:
-          - .:/application
-          - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - .:/var/www/html
+      - ./docker/php-apache/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini
       ports:
-       - "9999:80"
-
-    php-fpm:
-      build: docker/php-fpm
-      container_name: foosleague-php-fpm
-      working_dir: /application
-      volumes:
-        - .:/application
-        - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
-
+        - "9999:80"

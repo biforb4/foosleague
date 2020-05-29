@@ -1,10 +1,13 @@
 suites:
     default:
         namespace: FoosLeague
-        spec_prefix: Tests\Spec
+        spec_prefix: tests\Spec
     teams:
         namespace: FoosTeam
-        spec_prefix: Tests\Spec
+        spec_prefix: tests\Spec
+    common:
+        namespace: FoosCommon
+        spec_prefix: tests\Spec
 
 extensions:
     FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension: ~

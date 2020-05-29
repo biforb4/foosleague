@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Spec\FoosCommon\Infrastructure\Slack;
+namespace tests\Spec\FoosCommon\Infrastructure\Slack;
 
 use FoosCommon\Infrastructure\Slack\SlackCredentials;
 use PhpSpec\ObjectBehavior;
