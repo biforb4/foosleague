@@ -1,9 +1,9 @@
 FROM php:7.4-apache
 
-RUN apt-get update && apt-get install -y libpq-dev git
+RUN apt-get update && apt-get install -y libpq-dev git libzip-dev
 RUN pecl install xdebug
 
-RUN docker-php-ext-install pgsql pdo_pgsql
+RUN docker-php-ext-install pgsql pdo_pgsql zip
 
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 

@@ -1,9 +1,9 @@
 FROM php:7.4-apache
 
-RUN apt-get update && apt-get install -y --no-install-recommends libpq-dev \
+RUN apt-get update && apt-get install -y --no-install-recommends libpq-dev libzip-dev \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
-RUN docker-php-ext-install pgsql pdo_pgsql
+RUN docker-php-ext-install pgsql pdo_pgsql zip
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
