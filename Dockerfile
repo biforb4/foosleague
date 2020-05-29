@@ -16,4 +16,7 @@ RUN a2dissite 000-default.conf && a2ensite foosleague.conf && a2enmod rewrite
 COPY . /var/www/html
 RUN rm -rf docker-dev && rm docker-compose.yml
 
+ENTRYPOINT []
+CMD sed -i "s/80/8080/g" /etc/apache2/ports.conf && docker-php-entrypoint apache2-foreground
+
 
