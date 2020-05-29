@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\Spec\FoosLeague\Domain\Game;
+namespace Spec\FoosLeague\Domain\Game;
 
 use FoosLeague\Domain\Game\Game;
 use FoosLeague\Domain\Game\GameEndedEvent;

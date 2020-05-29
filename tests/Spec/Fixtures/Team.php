@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\Spec\Fixtures;
+namespace Spec\Fixtures;
 
 use FoosCommon\Model\Player\PlayerId;
 use FoosTeam\Model\Team\Name;

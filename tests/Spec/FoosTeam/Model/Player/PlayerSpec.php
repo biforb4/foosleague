@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\Spec\FoosTeam\Model\Player;
+namespace Spec\FoosTeam\Model\Player;
 
 use FoosTeam\Model\Player\Name;
 use FoosTeam\Model\Player\Player;

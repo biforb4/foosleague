@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\Spec\FoosLeague\Domain\League;
+namespace Spec\FoosLeague\Domain\League;
 
 use FoosLeague\Domain\League\Event\GameWasAdded;
 use FoosLeague\Domain\League\Event\LeagueGameWasEnded;
@@ -21,7 +21,7 @@ use Ramsey\Uuid\Uuid;
 use FoosCommon\Model\Owner\OwnerId;
 use FoosLeague\Domain\League\LeagueId;
 use PhpSpec\ObjectBehavior;
-use Tests\Spec\Fixtures\Team;
+use Spec\Fixtures\Team;
 
 class LeagueSpec extends ObjectBehavior
 {

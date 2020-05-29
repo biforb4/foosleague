@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace tests\Spec\Fixtures;
+namespace Spec\Fixtures;
 
 use FoosTeam\Model\Player\Name;
 use FoosTeam\Model\Player\Player as PlayerEntity;

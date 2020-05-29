@@ -55,7 +55,7 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\Behat\\": "tests/Behat",
-            "tests\\Spec\\": "tests/Spec"
+            "Spec\\": "tests/Spec"
         }
     },
     "replace": {

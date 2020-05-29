@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\Spec\FoosLeague\Domain\League;
+namespace Spec\FoosLeague\Domain\League;
 
 use FoosLeague\Domain\Game\Game;
 use FoosLeague\Domain\Game\GameRepositoryInterface;
@@ -14,7 +14,7 @@ use FoosCommon\Model\Owner\OwnerId;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Ramsey\Uuid\Uuid;
-use Tests\Spec\Fixtures\Team;
+use Spec\Fixtures\Team;
 
 class StartLeagueServiceSpec extends ObjectBehavior
 {
