@@ -13,5 +13,3 @@ RUN a2dissite 000-default.conf && a2ensite foosleague.conf && a2enmod rewrite
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-ENTRYPOINT []
-CMD sed -i "s/80/8080/g" /etc/apache2/ports.conf && docker-php-entrypoint apache2-foreground

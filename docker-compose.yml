@@ -20,4 +20,4 @@ services:
       - .:/var/www/html
       - ./docker/php-apache/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini
       ports:
-        - "9999:8080"
+        - "9999:80"
