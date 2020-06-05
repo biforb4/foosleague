@@ -24,7 +24,8 @@
         "symfony/serializer": "5.0.*",
         "symfony/translation": "5.0.*",
         "symfony/validator": "5.0.*",
-        "symfony/yaml": "5.0.*"
+        "symfony/yaml": "5.0.*",
+        "webmozart/assert": "^1.8"
     },
     "require-dev": {
         "behat/behat": "^3.6",
