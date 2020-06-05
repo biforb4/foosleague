@@ -1,7 +1,7 @@
 FROM php:7.4-apache
 
 RUN apt-get update && apt-get install -y libpq-dev git libzip-dev
-RUN pecl install xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 RUN docker-php-ext-install pgsql pdo_pgsql zip
 

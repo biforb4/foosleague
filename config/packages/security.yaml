@@ -3,7 +3,7 @@ security:
         users_in_memory:
             memory:
                 users:
-                    slackbot: { password: '%env(string:SLACK_SINGING_SECRET)%', roles: ['ROLE_SLACK_BOT'] }
+                    slackbot: { password: '%env(string:SLACK_SIGNING_SECRET)%', roles: ['ROLE_SLACK_BOT'] }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
